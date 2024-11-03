@@ -92,6 +92,6 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = {
-  path: '/employee/register',
+  path: '/user/register',
   router,
 };
