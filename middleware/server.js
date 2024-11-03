@@ -47,9 +47,9 @@ const db = knex({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: process.env.DB_PORT,
-    ssl: process.env.DB_SSL === 'true' ? {
-      rejectUnauthorized: true // Ensures SSL certificate verification
-    } : false,
+    // ssl: process.env.DB_SSL === 'true' ? {
+    //   rejectUnauthorized: true // Ensures SSL certificate verification
+    // } : false,
   },
 });
 
@@ -86,6 +86,6 @@ const loadRoutes = (directories) => {
 // Load routes only from the 'routes' directory
 loadRoutes([path.join(__dirname, 'routes')]);
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server is running on http://0.0.0.0:${port}`);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });

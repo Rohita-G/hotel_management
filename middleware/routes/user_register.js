@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 require('dotenv').config();
 
-const serverUrl = 'http://0.0.0.0:3500'; // Update to your current server URL
+const serverUrl = 'http://localhost:3500'; // Update to your current server URL
 
 // Employee registration route
 router.post('/', async (req, res) => {
