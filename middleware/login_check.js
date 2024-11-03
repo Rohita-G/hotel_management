@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
   try {
     // Querying the database for the email
     console.log(`Querying the database for email: ${email}`);
-    const result = await db('login_creds').select('*').where({ email }).first();
+    const result = await db('userAccounts').select('*').where({ email }).first();
 
     if (!result) {
       console.log('No user found for the given email');
@@ -47,41 +47,38 @@ router.post('/', async (req, res) => {
 
     if (isPasswordValid) {
       console.log('Password is valid. Proceeding to create JWT and session.');
- // Generate session ID
- const sessionId = uuidv4();
- console.log('Generated session ID:', sessionId);
+      
+      // Generate session ID
+      const sessionId = uuidv4();
+      console.log('Generated session ID:', sessionId);
+
       // Generate JWT token
-      const token = jwt.sign({ session_id: result.session_id }, process.env.JWT_SECRET, { expiresIn: '1hr' });
+      const token = jwt.sign({ session_id: sessionId }, process.env.JWT_SECRET, { expiresIn: '1hr' });
       console.log('Generated JWT token:', token);
 
-     
-
       // Update the session_id in the database
-      await db('login_creds').where('employee_id', result.employee_id).update({ session_id: sessionId });
+      await db('userAccounts').where('employee_id', result.employee_id).update({ session_id: sessionId });
       console.log('Updated session ID in the database');
 
       // Set JWT and session ID as HttpOnly cookies
       res.cookie('jwt_token', token, {
-        httpOnly: false,  // Ensure it's only accessible by the server
-        secure: process.env.NODE_ENV === 'production',  // Use `true` in production
+        httpOnly: true, // Accessible only by the server
+        secure: process.env.NODE_ENV === 'production', // Use `true` in production
         sameSite: 'Lax',
         maxAge: 24 * 60 * 60 * 1000, // 1 day
       });
-      
-      
-      res.cookie('session_id', sessionId, {
-        httpOnly: false,
-        secure: process.env.NODE_ENV === 'production',  // Disable secure for development
-        sameSite: 'Strict',
-        maxAge: 3600000,  // 1 hour
-      });
-      
-        
 
-    // Set CORS headers specific to this route
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    
+      res.cookie('session_id', sessionId, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Use `true` in production
+        sameSite: 'Strict',
+        maxAge: 3600000, // 1 hour
+      });
+
+      // Set CORS headers specific to this route
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+
       console.log('Cookies set: jwt_token and session_id');
 
       // Return response with session ID and employee ID in body (for debugging or frontend use)
@@ -113,6 +110,6 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = {
-  path: '/employee/login/check',
+  path: '/login/check',
   router,
 };
