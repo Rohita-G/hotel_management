@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import navigationmenu from '../../data/navigation.json';
 import Canvas from './Canvas';
 
+
 class Headertwo extends HeaderComponent {
     render() {
         const breakpoint = this.state.isMobile ? 'breakpoint-on' : '';
@@ -26,7 +27,7 @@ class Headertwo extends HeaderComponent {
                                 <div className="toggle" onClick={this.canvasToggle}>
                                     <Link to="#" id="offCanvasBtn"><i className="fal fa-bars" /></Link>
                                 </div>
-                                {/* Mneu Items */}
+                                {/* Menu Items */}
                                 <div className="menu-items">
                                     <ul>
                                         {navigationmenu.length > 0 ? navigationmenu.slice(0, 4).map((item, i) => (
@@ -62,22 +63,18 @@ class Headertwo extends HeaderComponent {
                                 <Link to="/" className="main-logo"><img src={process.env.PUBLIC_URL + "/assets/img/logo-white.png"} alt="logo" /></Link>
                                 <Link to="/" className="sticky-logo"><img src={process.env.PUBLIC_URL + "/assets/img/logo.png"} alt="logo" /></Link>
                             </div>
-                            {/* Header Info Pussed To Menu Wrap */}
+                            {/* Header Info Pushed To Menu Wrap */}
                             <div className={`nav-push-item ${hideClass}`}>
                                 {/* Header Info */}
                                 <div className="header-info d-lg-flex align-items-center">
                                     <div className="item">
-                                        <i className="fal fa-phone" />
-                                        <span>Phone Number</span>
-                                        <Link to="tel:+90898787709">
-                                            <h5 className="title">+908 987 877 09</h5>
+                                        <Link to="/login">
+                                            <button className="btn">Login</button>
                                         </Link>
                                     </div>
                                     <div className="item">
-                                        <i className="fal fa-envelope" />
-                                        <span>Email Address</span>
-                                        <Link to="mailto:example@example.com">
-                                            <h5 className="title">example@example.com</h5>
+                                        <Link to="/register">
+                                            <button className="btn">Register</button>
                                         </Link>
                                     </div>
                                 </div>

@@ -2,25 +2,10 @@
     {
         "id": 1,
         "linkText": "Home",
-        "child": true,
-        "submenu": [
-            {
-                "id": 11,
-                "link": "/",
-                "linkText": "Home One"
-            },
-            {
-                "id": 12,
-                "link": "/home-v2",
-                "linkText": "Home Two"
-            },
-            {
-                "id": 13,
-                "link": "/home-v3",
-                "linkText": "Home Three"
-            }
-        ]
-    },
+        "link": "/",
+        "child": false
+    }
+    ,
     {
         "id": 2,
         "linkText": "Rooms",
