@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect } from 'react'
+import React, { Suspense, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
 // Preloader
@@ -22,7 +22,8 @@ const Places = React.lazy(() => import("./components/pages/Places"));
 const Placesdetails = React.lazy(() => import("./components/pages/Placesdetails"));
 const Offers = React.lazy(() => import("./components/pages/Offers"));
 const Menu = React.lazy(() => import("./components/pages/Menu"));
-
+const LoginPage = React.lazy(() => import("./components/pages/LoginPage"));
+const RegisterPage = React.lazy(() => import("./components/pages/RegisterPage"));
 
 // Scroll to Top
 const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
@@ -30,9 +31,8 @@ const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
     window.scrollTo(0, 0)
   }, [pathname])
 
-  return children || null
-})
-
+  return children || null;
+});
 
 function App() {
   return (
@@ -60,6 +60,8 @@ function App() {
           <Route path="/places-details/:id" exact component={Placesdetails} />
           <Route path="/offers" exact component={Offers} />
           <Route path="/menu" exact component={Menu} />
+          <Route path="/login" exact component={LoginPage} /> {/* LoginPage route */}
+          <Route path="/register" exact component={RegisterPage} /> {/* RegisterPage route */}
         </ScrollToTop>
       </Suspense>
     </Router>
