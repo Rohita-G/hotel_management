@@ -1,39 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import './LoginContent.css'; // Import the CSS file for styling
 
 function Content() {
     return (
-        <div>
+        <div className="login-content">
             <h2>Login</h2>
-            <form>
-                <div>
+            <form className="login-form">
+                <div className="form-group">
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" name="username" />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="password">Password:</label>
                     <input type="password" id="password" name="password" />
                 </div>
-                <button 
-                    type="submit"
-                    style={{
-                        
-                        position: 'relative',
-                        backgroundColor: '#bead8e',
-                        color: '#fff',
-                        fontSize: '14px',
-                        fontWeight: '700',
-                        textTransform: 'uppercase',
-                        border: 'none',
-                        width: '200px',
-                        letterSpacing: '3px',
-                        padding: '15px 0',
-                        transition: 'all 0.3s ease-out 0s',
-                        cursor: 'pointer' // Adding pointer cursor for better user experience
-                    }}
-                >
+                <button type="submit" className="login-button">
                     Login
                 </button>
             </form>
+            
+            {/* Additional Links */}
+            <p className="additional-links">
+                <span>Don't have an account? <Link to="/register">Create New Account</Link></span>
+            </p>
+            <p className="additional-links">
+                <span>Already have an account? <Link to="/login">Sign In</Link></span>
+            </p>
         </div>
     );
 }
