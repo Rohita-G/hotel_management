@@ -8,16 +8,17 @@ function Placesmap(props) {
                 google={props.google}
                 zoom={12}
                 initialCenter={{
-                    lat: 31.53912, lng: -89.29163
+                    lat: 37.6288872, lng: -79.5451583 // Updated to Natural Bridge, Virginia
                 }}
             >
                 <Marker position={{
-                    lat: 31.53912, lng: -89.29163
+                    lat: 37.6288872, lng: -79.5451583 // Updated to Natural Bridge, Virginia
                 }} />
             </Map>
         </div>
     );
 }
+
 export default GoogleApiWrapper({
     apiKey: "AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ",
 })(Placesmap);
