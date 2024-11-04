@@ -33,7 +33,7 @@ class Banner extends Component {
                                 <h1 className="title"> The Perfect <br /> Base For You</h1>
                                 <ul>
                                     <li>
-                                        <Link className="main-btn btn-filled" to="/room-details/1">take a tour</Link>
+                                        <Link className="main-btn btn-filled" to="/room-details/2">take a tour</Link>
                                     </li>
                                     <li>
                                         <Link className="main-btn btn-border" to="/about">Learn More</Link>
