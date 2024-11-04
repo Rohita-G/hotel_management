@@ -18,9 +18,7 @@ class Canvas extends Component {
                 <div className="widget about-widget">
                     <h5 className="widget-title">About us</h5>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia reiciendis illo ipsa asperiores,
-                        perspiciatis corrupti veritatis assumenda architecto commodi provident quas necessitatibus
-                        consequatur praesentium magnam optio deserunt fugiat repellat culpa.
+                    Welcome to the Natural Bridge Historic Hotel & Conference Center. Nestled in the Blue Ridge Mountains, the Natural Bridge Historic Hotel spans 200 scenic acres alongside the East Coast’s deepest caverns. Adjacent to the iconic 215-foot Natural Bridge in Natural Bridge State Park, our location blends rich history with breathtaking natural beauty.
     </p>
                 </div>
                 {/* Nav Widget */}
