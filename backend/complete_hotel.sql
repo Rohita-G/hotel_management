@@ -172,6 +172,14 @@ CREATE TABLE IF NOT EXISTS Invoices (
     FOREIGN KEY (booking_id) REFERENCES Bookings(booking_id) ON DELETE CASCADE
 );
 
+-- Table: HomeDescriptions
+CREATE TABLE IF NOT EXISTS HomeDescriptions (
+    description_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    section_name VARCHAR(100) DEFAULT 'home',
+    images VARCHAR(255),
+    description TEXT
+);
+
 -- Table: Events
 CREATE TABLE IF NOT EXISTS Events (
     event_id INT PRIMARY KEY AUTO_INCREMENT,
