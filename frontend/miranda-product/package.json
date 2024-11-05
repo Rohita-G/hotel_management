@@ -1,7 +1,7 @@
 {
   "name": "miranda",
   "version": "0.1.0",
-  "homepage": "https://slay-a.github.io/hotel_management",
+  "homepage": "https://rohita-g.github.io/hotel_management",
   "private": true,
   "main": "lib/index",
   "types": "lib/index",
